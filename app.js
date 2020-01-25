@@ -8,17 +8,27 @@ const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
 
-function getComputedChoice() {
+function getComputerChoice() {
   const choices = ["r", "p", "s"];
   const randomNumber = Math.floor(Math.random() * 3);
   return choices[randomNumber];
+}
+
+function convertToWord(letter) {
+  if (letter === "r") return "Rock";
+  if (letter === "p") return "Paper";
+  return "Scissors";
 }
 
 function win(userChoice, computerChoice) {
   userScore++;
   userScore_span.innerHTML = userScore;
   computerScore_span.innerHTML = computerScore;
-  result_p.innerHTML = userChoice + " beats " + computerChoice + ". You win!";
+  result_p.innerHTML =
+    convertToWord(userChoice) +
+    " beats " +
+    convertToWord(computerChoice) +
+    ". You win!";
 }
 
 function lose() {}
@@ -28,7 +38,7 @@ function draw() {
 }
 
 function game(userChoice) {
-  const computerChoice = getComputedChoice();
+  const computerChoice = getComputerChoice();
   switch (userChoice + computerChoice) {
     case "rs":
     case "pr":
