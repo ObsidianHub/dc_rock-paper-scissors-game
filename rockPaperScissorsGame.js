@@ -19,3 +19,13 @@ function convertToWord(letter) {
   if (letter === "p") return "Paper";
   return "Scissors";
 }
+
+function main() {
+  rock_div.addEventListener("click", () => game("r"));
+
+  paper_div.addEventListener("click", () => game("p"));
+
+  scissors_div.addEventListener("click", () => game("s"));
+}
+
+main();
