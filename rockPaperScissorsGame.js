@@ -20,6 +20,24 @@ function convertToWord(letter) {
   return "Scissors";
 }
 
+function win(userChoice, computerChoice) {
+  const smallUserWord = "user".fontsize(3).sub();
+  const smallCompWord = "comp".fontsize(3).sub();
+  const userChoice_div = document.getElementById(userChoice);
+  userScore++;
+  userScore_span.innerHTML = userScore;
+  computerScore_span.innerHTML = computerScore;
+  result_p.innerHTML = `${convertToWord(
+    userChoice
+  )}${smallUserWord} beats ${convertToWord(
+    computerChoice
+  )}${smallCompWord}. You win!`;
+  userChoice_div.classList.add("green-glow");
+  setTimeout(() => {
+    userChoice_div.classList.remove("green-glow");
+  }, 1000);
+}
+
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   switch (userChoice + computerChoice) {
