@@ -56,6 +56,21 @@ function lose(userChoice, computerChoice) {
   }, 1000);
 }
 
+function draw(userChoice, computerChoice) {
+  const smallUserWord = "user".fontsize(3).sub();
+  const smallCompWord = "comp".fontsize(3).sub();
+  const userChoice_div = document.getElementById(userChoice);
+  result_p.innerHTML = `${convertToWord(
+    userChoice
+  )}${smallUserWord} equals ${convertToWord(
+    computerChoice
+  )}${smallCompWord}. It's a draw.`;
+  userChoice_div.classList.add("gray-glow");
+  setTimeout(() => {
+    userChoice_div.classList.remove("gray-glow");
+  }, 1000);
+}
+
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   switch (userChoice + computerChoice) {
