@@ -38,6 +38,24 @@ function win(userChoice, computerChoice) {
   }, 1000);
 }
 
+function lose(userChoice, computerChoice) {
+  const smallUserWord = "user".fontsize(3).sub();
+  const smallCompWord = "comp".fontsize(3).sub();
+  const userChoice_div = document.getElementById(userChoice);
+  computerScore++;
+  userScore_span.innerHTML = userScore;
+  computerScore_span.innerHTML = computerScore;
+  result_p.innerHTML = `${convertToWord(
+    userChoice
+  )}${smallUserWord} loses to ${convertToWord(
+    computerChoice
+  )}${smallCompWord}. You lost...`;
+  userChoice_div.classList.add("red-glow");
+  setTimeout(() => {
+    userChoice_div.classList.remove("red-glow");
+  }, 1000);
+}
+
 function game(userChoice) {
   const computerChoice = getComputerChoice();
   switch (userChoice + computerChoice) {
